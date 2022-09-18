@@ -54,7 +54,7 @@ export const CreateAdModal = () => {
   return (
     <Dialog.Portal>
       <Dialog.Overlay className='bg-black/60 inset-0 fixed' />
-      <Dialog.Content className='fixed bg-[#2a2634] py-8 px-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg w-[480px] shadow-lg shadow-black/25'>
+      <Dialog.Content className='fixed bg-[#2a2634] py-8 px-10 z-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg w-[480px] shadow-lg shadow-black/25'>
         <Dialog.Title className='text-3xl font-black'>
           Publique um anúncio
         </Dialog.Title>
@@ -184,7 +184,7 @@ export const CreateAdModal = () => {
 
             <div className='flex flex-col gap-2 flex-1'>
               <label htmlFor='hourStart'>Qual o horário do dia?</label>
-              <div className='grid grid-cols-2 gap-1'>
+              <div className='flex flex-col gap-1'>
                 <Input
                   name='hourStart'
                   id='hourStart'
@@ -201,7 +201,7 @@ export const CreateAdModal = () => {
             </div>
           </div>
 
-          <label className='mt-2 flex items-center gap-2 text-sm'>
+          <label className='mt-2 flex items-center gap-2 text-sm cursor-pointer'>
             <Checkbox.Root
               checked={useVoiceChannel}
               onCheckedChange={(checked) => {
