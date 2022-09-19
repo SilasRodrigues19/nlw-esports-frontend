@@ -90,10 +90,10 @@ Technologies used in the project.
 1. Clone the repo
 
 ```sh
-  git clone https://github.com/SilasRodrigues19/nlw-esports-frontend.git
+  git clone https://github.com/SilasRodrigues19/nlw-esports-frontend.git && cd nlw-esports-frontend
 ```
 
-2. In the directory folder, install the packages
+2. Install NPM packages
 
 ```sh
   npm install
