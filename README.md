@@ -20,6 +20,8 @@
     <a href="#"><strong>Demo</strong></a>
     &#124;
     <a href="https://www.figma.com/file/SOKqRWoHHTlHBTbtsq4SeB/NLW-eSports-(Community)?node-id=0%3A1"><strong>Figma</strong></a>
+    &#124;
+    <a href="https://github.com/SilasRodrigues19/nlw-esports-backend"><strong>Backend</strong></a>
     <br />
   </p>
 </p>
@@ -59,7 +61,7 @@ The screens and features are described below:
 - **Home:** display of game cards registered in the database with a description informing how many ads they had.
 - **Modal:** modal to fill in the information about the game that you want to publish, in order to find players to play with you.
 
-### Built With
+## Built With
 
 Technologies used in the project.
 
@@ -83,9 +85,15 @@ Technologies used in the project.
 
 <!-- GETTING STARTED -->
 
-### Getting Started
+## Getting Started
 
-#### \* The backend app must be running:
+#### Pre requisites
+
+- The backend app must be running, access the link below and follow the instructions:
+
+[`nlw-esports-backend`](https://github.com/SilasRodrigues19/nlw-esports-backend)
+
+<br>
 
 1. Clone the repo
 
