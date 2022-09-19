@@ -18,6 +18,7 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { Keyboard, Pagination, Navigation } from 'swiper';
+import { Octo } from './components/Octo';
 
 interface Game {
   id: string;
@@ -42,6 +43,7 @@ const App = () => {
 
   return (
     <>
+      <Octo />
       <section className='max-w-[1344px] mx-auto flex flex-col items-center my-20'>
         <img src={logo} alt='Logo NLW eSports' className='w-32' />
         <h1 className='text-6xl text-white font-black mt-20'>
