@@ -8,12 +8,12 @@ export const GameBanner = (props: GameBannerProps) => {
   return (
     <a
       href='javascript:void(0)'
-      className='relative rounded-lg overflow-hidden'
+      className='relative rounded-lg overflow-hidden keen-slider__slide number-slide1'
     >
       <img
-        className='pointer-events-none max-h-[15rem] m-auto object-fill'
+        className='pointer-events-none max-h-[15rem] m-auto'
         src={props.bannerUrl}
-        alt=''
+        alt={`Imagem do jogo ${props.title}`}
       />
       <div className='w-full pt-16 pb-4 px-4 bg-game-gradient absolute left-0 bottom-0 right-0'>
         <strong className='font-bold text-center text-white block'>
