@@ -12,6 +12,7 @@ import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 
 import { Octo } from './components/Octo';
+import { CaretLeft, CaretRight } from 'phosphor-react';
 
 interface Game {
   id: string;
@@ -36,12 +37,14 @@ const App = () => {
       });
   }, []);
 
+  const pewView = 3;
+
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     mode: 'free-snap',
     slides: {
       origin: 'auto',
-      perView: 3.5,
-      spacing: 0,
+      perView: pewView,
+      spacing: 15,
       number: games.length,
     },
     range: {
@@ -69,20 +72,49 @@ const App = () => {
           está aqui.
         </h1>
 
-        <div
-          ref={sliderRef}
-          className='keen-slider w-full grid grid-cols-6 gap-6 mt-16'
-        >
-          {games.map(({ id, title, bannerUrl, _count }) => {
-            return (
-              <GameBanner
-                key={id}
-                title={title}
-                bannerUrl={bannerUrl}
-                adsCount={_count.ads}
+        <div className='flex justify-between items-center'>
+          <button
+            disabled={slide === 0}
+            type='button'
+            onClick={() => instanceRef.current?.prev()}
+          >
+            <CaretLeft
+              className={`mx-24 h-14 w-14 ${
+                slide === 0
+                  ? 'text-zinc-400 hover:text-zinc-400 cursor-not-allowed'
+                  : 'text-purple-500 hover:text-purple-600'
+              }`}
+            />
+          </button>
+
+          <div
+            ref={sliderRef}
+            className='keen-slider w-full max-w-5xl gap-6 mt-16'
+          >
+            {games.map(({ id, title, bannerUrl, _count }) => {
+              return (
+                <GameBanner
+                  key={id}
+                  title={title}
+                  bannerUrl={bannerUrl}
+                  adsCount={_count.ads}
+                />
+              );
+            })}
+          </div>
+
+          {loaded && instanceRef.current && (
+            <button type='button' onClick={() => instanceRef.current?.next()}>
+              <CaretRight
+                className={`mx-24 h-14 w-14 ${
+                  slide ===
+                  pewView /* instanceRef.current.track.details.slides.length - 1 */
+                    ? 'text-zinc-400 hover:text-zinc-400 cursor-not-allowed'
+                    : 'text-purple-500 hover:text-purple-600'
+                }`}
               />
-            );
-          })}
+            </button>
+          )}
         </div>
 
         <Dialog.Root>
