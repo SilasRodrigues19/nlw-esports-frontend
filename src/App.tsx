@@ -8,16 +8,9 @@ import logo from './assets/logo-nlw-esports.svg';
 import './styles/main.css';
 import { CreateAdModal } from './components/CreateAdModal';
 
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { useKeenSlider } from 'keen-slider/react';
+import 'keen-slider/keen-slider.min.css';
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
-// import required modules
-import { Keyboard, Pagination, Navigation } from 'swiper';
 import { Octo } from './components/Octo';
 
 interface Game {
@@ -31,6 +24,8 @@ interface Game {
 
 const App = () => {
   const [games, setGames] = useState<Game[]>([]);
+  const [slide, setSlide] = useState(0);
+  const [loaded, isLoaded] = useState(false);
 
   useEffect(() => {
     fetch('http://localhost:3333/games')
@@ -40,6 +35,26 @@ const App = () => {
         setGames(data);
       });
   }, []);
+
+  const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
+    mode: 'free-snap',
+    slides: {
+      origin: 'auto',
+      perView: 3.5,
+      spacing: 0,
+      number: games.length,
+    },
+    range: {
+      min: 0,
+      max: 5,
+    },
+    slideChanged(slider) {
+      setSlide(slider.track.details.rel);
+    },
+    created() {
+      isLoaded(true);
+    },
+  });
 
   return (
     <>
@@ -54,34 +69,21 @@ const App = () => {
           está aqui.
         </h1>
 
-        <Swiper
-          className='w-full mt-24 mb-4'
-          slidesPerView={4}
-          spaceBetween={15}
-          keyboard={{
-            enabled: true,
-          }}
-          pagination={{
-            clickable: false,
-          }}
-          navigation={true}
-          modules={[Keyboard, Navigation]}
+        <div
+          ref={sliderRef}
+          className='keen-slider w-full grid grid-cols-6 gap-6 mt-16'
         >
-          <div className='grid grid-cols-6 gap-6 mt-16'>
-            {games.map(({ id, title, bannerUrl, _count }) => {
-              return (
-                <SwiperSlide>
-                  <GameBanner
-                    key={id}
-                    title={title}
-                    bannerUrl={bannerUrl}
-                    adsCount={_count.ads}
-                  />
-                </SwiperSlide>
-              );
-            })}
-          </div>
-        </Swiper>
+          {games.map(({ id, title, bannerUrl, _count }) => {
+            return (
+              <GameBanner
+                key={id}
+                title={title}
+                bannerUrl={bannerUrl}
+                adsCount={_count.ads}
+              />
+            );
+          })}
+        </div>
 
         <Dialog.Root>
           <CreateAdBanner />
