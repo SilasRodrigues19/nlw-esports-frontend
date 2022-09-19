@@ -60,3 +60,12 @@ html {
     animation: octocat-wave 560ms ease-in-out;
   }
 }
+
+#game {
+  -webkit-appearance: none;
+  background: url(https://api.iconify.design/eva/arrow-ios-upward-outline.svg?color=%23cacaca&width=10&height=10&rotate=180deg)
+      no-repeat right / contain,
+    #18181b;
+  background-size: 1rem;
+  background-position-x: 95%;
+}
