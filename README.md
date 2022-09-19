@@ -81,6 +81,30 @@ Technologies used in the project.
 
 - [Font Awesome](https://fontawesome.com)
 
+<!-- GETTING STARTED -->
+
+### Getting Started
+
+#### \* The backend app must be running:
+
+1. Clone the repo
+
+```sh
+  git clone https://github.com/SilasRodrigues19/nlw-esports-frontend.git
+```
+
+2. In the directory folder, install the packages
+
+```sh
+  npm install
+```
+
+3. Run the project
+
+```sh
+  npm run dev
+```
+
 <!-- CONTRIBUTING -->
 
 ## Contributing
