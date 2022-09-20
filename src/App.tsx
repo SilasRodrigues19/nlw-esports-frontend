@@ -14,6 +14,9 @@ import 'keen-slider/keen-slider.min.css';
 import { Octo } from './components/Octo';
 import { CaretLeft, CaretRight } from 'phosphor-react';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 interface Game {
   id: string;
   title: string;
@@ -37,19 +40,19 @@ const App = () => {
       });
   }, []);
 
-  const pewView = 3;
+  const maxValue = 8;
 
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     mode: 'free-snap',
     slides: {
       origin: 'auto',
-      perView: pewView,
+      perView: 3,
       spacing: 15,
       number: games.length,
     },
     range: {
       min: 0,
-      max: 5,
+      max: maxValue,
     },
     slideChanged(slider) {
       setSlide(slider.track.details.rel);
@@ -62,6 +65,7 @@ const App = () => {
   return (
     <>
       <Octo />
+      <ToastContainer />
       <section className='max-w-[1344px] mx-auto flex flex-col items-center my-20'>
         <img src={logo} alt='Logo NLW eSports' className='w-32' />
         <h1 className='text-6xl text-white font-black mt-20'>
@@ -107,9 +111,9 @@ const App = () => {
             <button type='button' onClick={() => instanceRef.current?.next()}>
               <CaretRight
                 className={`mx-24 h-14 w-14 ${
-                  slide ===
-                  pewView /* instanceRef.current.track.details.slides.length - 1 */
-                    ? 'text-zinc-400 hover:text-zinc-400 cursor-not-allowed'
+                  slide === maxValue - 2
+                    ? /* instanceRef.current.track.details.slides.length - 1 */
+                      'text-zinc-400 hover:text-zinc-400 cursor-not-allowed'
                     : 'text-purple-500 hover:text-purple-600'
                 }`}
               />
