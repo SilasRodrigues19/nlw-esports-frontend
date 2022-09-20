@@ -5,6 +5,9 @@ import { Check, GameController } from 'phosphor-react';
 import { Input } from './Form/Input';
 import { useEffect, useState, FormEvent } from 'react';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import axios from 'axios';
 
 interface Game {
@@ -43,16 +46,16 @@ export const CreateAdModal = () => {
         hourEnd: data.hourEnd,
         useVoiceChannel: useVoiceChannel,
       });
-
-      alert('Anúncio criado com sucesso!');
+      toast.success('Anúncio criado com sucesso!');
     } catch (error) {
       console.error(error);
-      alert('Erro ao criar anúncio');
+      toast.error('Erro ao criar anúncio!');
     }
   };
 
   return (
     <Dialog.Portal>
+      <ToastContainer />
       <Dialog.Overlay className='bg-black/60 inset-0 fixed' />
       <Dialog.Content className='fixed bg-[#2a2634] py-8 px-10 z-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg w-[480px] shadow-lg shadow-black/25'>
         <Dialog.Title className='text-3xl font-black'>
