@@ -56,6 +56,10 @@
 
 [![Preview][product-screenshot2]](#)
 
+### Mobile (500px) and Tablet (768px)
+[![Preview][product-screenshot3]](#)
+
+
 The screens and features are described below:
 
 - **Home:** display of game cards registered in the database with a description informing how many ads they had.
@@ -154,6 +158,7 @@ Project Link: [https://github.com/SilasRodrigues19/nlw-esports-frontend](https:/
 [license-url]: https://github.com/SilasRodrigues19/nlw-esports-frontend/blob/master/LICENSE
 [product-screenshot]: ./public/preview.png
 [product-screenshot2]: ./public/preview2.png
+[product-screenshot3]: ./public/preview3.png
 [license-url]: https://github.com/SilasRodrigues19/nlw-esports-frontend/blob/master/LICENSE
 
 <br><hr>
