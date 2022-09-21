@@ -4,9 +4,9 @@ import * as Dialog from '@radix-ui/react-dialog';
 export const CreateAdBanner = () => {
   return (
     <div className='pt-1 mt-8 bg-nlw-gradient self-stretch rounded-lg overflow-hidden'>
-      <div className='bg-[#2a2634] px-8 py-6 flex justify-between items-center'>
+      <div className='bg-[#2a2634] px-8 py-6 flex justify-between items-center flex-wrap gap-4'>
         <div>
-          <strong className='text-2xl text-white font-black block'>
+          <strong className=' text-white font-black block md:text-md sm:text-center sm:mx-1 md:text-2xl'>
             Não encontrou seu duo?
           </strong>
           <span className='text-zinc-400 block'>
