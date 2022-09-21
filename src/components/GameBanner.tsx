@@ -4,7 +4,7 @@ interface GameBannerProps {
   adsCount: number;
 }
 
-export const GameBanner = (props: GameBannerProps) => {
+export const GameBanner = ({ bannerUrl, title, adsCount }: GameBannerProps) => {
   return (
     <a
       href='javascript:void(0)'
@@ -12,15 +12,15 @@ export const GameBanner = (props: GameBannerProps) => {
     >
       <img
         className='pointer-events-none max-h-[15rem] m-auto'
-        src={props.bannerUrl}
-        alt={`Imagem do jogo ${props.title}`}
+        src={bannerUrl}
+        alt={`Imagem do jogo ${title}`}
       />
       <div className='w-full pt-16 pb-4 px-4 bg-game-gradient absolute left-0 bottom-0 right-0'>
         <strong className='font-bold text-center text-white block'>
-          {props.title}
+          {title}
         </strong>
         <span className='text-zinc-300 text-center text-sm block'>
-          {props.adsCount} {props.adsCount > 1 ? 'anúncios' : 'anúncio'}
+          {adsCount} {adsCount > 1 ? 'anúncios' : 'anúncio'}
         </span>
       </div>
     </a>
