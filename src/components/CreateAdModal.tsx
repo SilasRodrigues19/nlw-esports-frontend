@@ -57,13 +57,13 @@ export const CreateAdModal = () => {
     <Dialog.Portal>
       <ToastContainer />
       <Dialog.Overlay className='bg-black/60 inset-0 fixed' />
-      <Dialog.Content className='fixed bg-[#2a2634] py-8 px-10 z-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg w-[480px] shadow-lg shadow-black/25'>
-        <Dialog.Title className='text-3xl font-black'>
+      <Dialog.Content className='fixed bg-[#2a2634] py-8 px-10 z-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg shadow-lg shadow-black/25 sm:w-[20rem] md:w-[30rem] :h-full'>
+        <Dialog.Title className='sm:text-xl md:text-3xl font-black'>
           Publique um anúncio
         </Dialog.Title>
         <form onSubmit={handleCreateAd} className='mt-8 flex flex-col gap-4'>
           <div className='flex flex-col gap-2'>
-            <label htmlFor='game' className='font-semibold'>
+            <label htmlFor='game' className='sm:text-sm'>
               Qual o game?
             </label>
             <select
@@ -71,7 +71,7 @@ export const CreateAdModal = () => {
               name='game'
               className='bg-zinc-900 py-3 px-4 rounded text-sm placeholder:text-zinc-500'
             >
-              <option className='text-zinc-500' value='' selected disabled>
+              <option className='sm:text-sm text-zinc-500' value='' selected disabled>
                 Selecione o game que deseja jogar
               </option>
 
@@ -247,7 +247,7 @@ export const CreateAdModal = () => {
               className='flex items-center gap-3 bg-violet-500 px-5 h-12 rounded-md font-semibold hover:bg-violet-600'
             >
               <GameController size={22} />
-              Encontrar duo
+              Encontrar
             </button>
           </footer>
         </form>
