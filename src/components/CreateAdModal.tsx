@@ -71,7 +71,12 @@ export const CreateAdModal = () => {
               name='game'
               className='bg-zinc-900 py-3 px-4 rounded text-sm placeholder:text-zinc-500'
             >
-              <option className='sm:text-sm text-zinc-500' value='' selected disabled>
+              <option
+                className='sm:text-sm text-zinc-500'
+                value=''
+                selected
+                disabled
+              >
                 Selecione o game que deseja jogar
               </option>
 
@@ -115,106 +120,106 @@ export const CreateAdModal = () => {
 
               <ToggleGroup.Root
                 type='multiple'
-                className='grid grid-cols-4 gap-2'
+                className='flex gap-2'
                 value={weekDays}
                 onValueChange={setWeekdays}
               >
                 <ToggleGroup.Item
                   value='0'
                   title='Domingo'
-                  className={`w-8 h-8 rounded ${
+                  className={`w-12 h-8 rounded ${
                     weekDays.includes('0')
                       ? 'bg-violet-500 scale-105 transition-transform'
                       : 'bg-zinc-900'
                   }`}
                 >
-                  D
+                  Dom
                 </ToggleGroup.Item>
                 <ToggleGroup.Item
                   value='1'
                   title='Segunda'
-                  className={`w-8 h-8 rounded ${
+                  className={`w-12 h-8 rounded ${
                     weekDays.includes('1')
                       ? 'bg-violet-500 scale-105 transition-transform'
                       : 'bg-zinc-900'
                   }`}
                 >
-                  S
+                  Seg
                 </ToggleGroup.Item>
                 <ToggleGroup.Item
                   value='2'
                   title='Terça'
-                  className={`w-8 h-8 rounded ${
+                  className={`w-12 h-8 rounded ${
                     weekDays.includes('2')
                       ? 'bg-violet-500 scale-105 transition-transform'
                       : 'bg-zinc-900'
                   }`}
                 >
-                  T
+                  Ter
                 </ToggleGroup.Item>
                 <ToggleGroup.Item
                   value='3'
                   title='Quarta'
-                  className={`w-8 h-8 rounded ${
+                  className={`w-12 h-8 rounded ${
                     weekDays.includes('3')
                       ? 'bg-violet-500 scale-105 transition-transform'
                       : 'bg-zinc-900'
                   }`}
                 >
-                  Q
+                  Qua
                 </ToggleGroup.Item>
                 <ToggleGroup.Item
                   value='4'
                   title='Quinta'
-                  className={`w-8 h-8 rounded ${
+                  className={`w-12 h-8 rounded ${
                     weekDays.includes('4')
                       ? 'bg-violet-500 scale-105 transition-transform'
                       : 'bg-zinc-900'
                   }`}
                 >
-                  Q
+                  Qui
                 </ToggleGroup.Item>
                 <ToggleGroup.Item
                   value='5'
                   title='Sexta'
-                  className={`w-8 h-8 rounded ${
+                  className={`w-12 h-8 rounded ${
                     weekDays.includes('5')
                       ? 'bg-violet-500 scale-105 transition-transform'
                       : 'bg-zinc-900'
                   }`}
                 >
-                  S
+                  Sex
                 </ToggleGroup.Item>
                 <ToggleGroup.Item
                   value='6'
                   title='Sábado'
-                  className={`w-8 h-8 rounded ${
+                  className={`w-12 h-8 rounded ${
                     weekDays.includes('6')
                       ? 'bg-violet-500 scale-105 transition-transform'
                       : 'bg-zinc-900'
                   }`}
                 >
-                  S
+                  Sáb
                 </ToggleGroup.Item>
               </ToggleGroup.Root>
             </div>
+          </div>
 
-            <div className='flex flex-col gap-2 flex-1'>
-              <label htmlFor='hourStart'>Qual o horário do dia?</label>
-              <div className='flex flex-col gap-1'>
-                <Input
-                  name='hourStart'
-                  id='hourStart'
-                  type='time'
-                  placeholder='De'
-                />
-                <Input
-                  name='hourEnd'
-                  id='hourEnd'
-                  type='time'
-                  placeholder='Até'
-                />
-              </div>
+          <div className='flex flex-col gap-2'>
+            <label htmlFor='hourStart'>Qual o horário do dia?</label>
+            <div className='grid grid-cols-2 gap-6'>
+              <Input
+                name='hourStart'
+                id='hourStart'
+                type='time'
+                placeholder='De'
+              />
+              <Input
+                name='hourEnd'
+                id='hourEnd'
+                type='time'
+                placeholder='Até'
+              />
             </div>
           </div>
 
